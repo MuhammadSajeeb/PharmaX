@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CategoriesRepository.cs" />
+    <Compile Include="Repositories\MainRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\P.Core\P.Core.csproj">
