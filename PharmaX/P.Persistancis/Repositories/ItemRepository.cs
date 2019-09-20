@@ -73,7 +73,7 @@ namespace P.Persistancis.Repositories
         }
         public int Add(Items _Items)
         {
-            string query = "Insert Into Shelfs(Code,Name,GenericName,ReorderLevel,CategoriesId,ShelfsId,Date) Values ('" + _Items.Code + "','" + _Items.Name + "','" + _Items.GenericName + "','" + _Items.ReorderLevel + "','" + _Items.CategoriesId+ "','" + _Items.ShelfsId + "','" + DateTime.Now.ToShortDateString() + "')";
+            string query = "Insert Into Items(Code,Name,GenericName,ReorderLevel,CategoriesId,ShelfsId,Date) Values ('" + _Items.Code + "','" + _Items.Name + "','" + _Items.GenericName + "','" + _Items.ReorderLevel + "','" + _Items.CategoriesId+ "','" + _Items.ShelfsId + "','" + DateTime.Now.ToShortDateString() + "')";
             return _MainRepository.ExecuteNonQuery(query, _MainRepository.ConnectionString());
         }
         public Shelfs GetQtyByShelfs(int Id)
@@ -96,6 +96,29 @@ namespace P.Persistancis.Repositories
         {
             string query = "Select Count(*)from Items Where ShelfsId='"+Id+"' ";
             return _MainRepository.ExecuteScalar(query, _MainRepository.ConnectionString());
+        }
+        public List<Items> GetAllItems()
+        {
+            var _ItemsList = new List<Items>();
+            string query = ("Select *From Items");
+            var reader = _MainRepository.Reader(query, _MainRepository.ConnectionString());
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    var _Items = new Items();
+                    _Items.Code = reader["Code"].ToString();
+                    _Items.Name = reader["Name"].ToString();
+                    _Items.GenericName = reader["GenericName"].ToString();
+                    _Items.ReorderLevel = Convert.ToInt32(reader["ReorderLevel"].ToString());
+                    _Items.Date=(reader["Date"].ToString());
+
+                    _ItemsList.Add(_Items);
+                }
+            }
+            reader.Close();
+
+            return _ItemsList;
         }
     }
 }

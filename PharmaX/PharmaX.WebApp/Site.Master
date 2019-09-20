@@ -80,27 +80,27 @@
                             aria-expanded="false"><i class="menu-icon fa fa-medkit"></i>Items</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-plus-circle"></i><a runat="server" href="~/Item/Setup.aspx">Setup</a></li>
+                            <li><i class="fa fa-list"></i><a runat="server" href="~/Item/ViewAll.aspx">View All</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"><i class="menu-icon fa fa-th"></i>Forms</a>
+                            aria-expanded="false"><i class="menu-icon fa fa-users"></i>Suppliers</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Basic Form</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Advanced Form</a></li>
+                            <li><i class="fa fa-plus-circle"></i><a runat="server" href="~/Supplier/Setup.aspx">Setup</a></li>
+                            <li><i class="fa fa-list"></i><a runat="server" href="~/Supplier/ViewAll.aspx">View All</a></li>
                         </ul>
                     </li>
 
-                    <h3 class="menu-title">Icons</h3>
+                    <h3 class="menu-title">Inventory</h3>
                     <!-- /.menu-title -->
 
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"><i class="menu-icon fa fa-tasks"></i>Icons</a>
+                            aria-expanded="false"><i class="menu-icon fa fa-shopping-cart"></i>Purchase</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-fort-awesome"></i><a href="font-fontawesome.html">Font Awesome</a>
-                            </li>
-                            <li><i class="menu-icon ti-themify-logo"></i><a href="font-themify.html">Themefy Icons</a></li>
+                            <li><i class="fa fa-check-circle"></i><a runat="server" href="~/Purchase/Confirm.aspx">Confirm</a></li>
+                            <li><i class="fa fa-list"></i><a runat="server" href="~/Item/ViewAll.aspx">View All</a></li>
                         </ul>
                     </li>
                     <li>
@@ -303,7 +303,7 @@
                 normalizeFunction: 'polynomial'
             });
         })(jQuery);
-</script>
+    </script>
 </body>
 
 </html>

@@ -46,6 +46,7 @@
     <Compile Include="Repositories\ItemRepository.cs" />
     <Compile Include="Repositories\MainRepository.cs" />
     <Compile Include="Repositories\ShelfRepository.cs" />
+    <Compile Include="Repositories\SupplierRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\P.Core\P.Core.csproj">

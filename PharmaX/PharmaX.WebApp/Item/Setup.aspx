@@ -55,7 +55,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-md-offset-1 col-md-10">
-                                    <a class="nav-link" href="ViewDepartments.aspx">Back to List</a>
+                                    <a class="nav-link" href="ViewAll.aspx">Back to List</a>
                                 </div>
                             </div>
 

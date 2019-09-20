@@ -1,6 +1,8 @@
-﻿using P.Persistancis.Repositories;
+﻿using P.Core.Models;
+using P.Persistancis.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -90,11 +92,33 @@ namespace PharmaX.WebApp.Item
                 
                 if (totalqtyByshelfs <= StoreQty)
                 {
-                    lblmsg.Text = "Work yes";
+                    Items _Items = new Items();
+                    _Items.Code = txtCode.Text;
+                    _Items.Name = txtName.Text;
+                    _Items.GenericName = txtGenericName.Text;
+                    _Items.ReorderLevel = Convert.ToInt32(txtReorderLevel.Text);
+                    _Items.CategoriesId = Convert.ToInt32(CategoriesDropDownList.SelectedValue);
+                    _Items.ShelfsId = Convert.ToInt32(ShelfsDropDownList.SelectedValue);
+
+                    int saveSuccess = _ItemRepository.Add(_Items);
+                    if(saveSuccess>0)
+                    {
+                        lblmsg.Text = "This Item Save Successefully!!....";
+                        lblmsg.ForeColor = Color.Green;
+                        AutoCodeGenerate();
+
+                        Response.Redirect(Request.Url.AbsoluteUri);
+                    }
+                    else
+                    {
+                        lblmsg.Text = "This Item Saving Failed!!....";
+                        lblmsg.ForeColor = Color.Red;
+                    }
                 }
                 else
                 {
-                    lblmsg.Text = "Work no";
+                    lblmsg.Text = "This Shelf Fully Done!!....Please Try Another Shelf";
+                    lblmsg.ForeColor = Color.Red;
                 }
             }
             catch(Exception ex)

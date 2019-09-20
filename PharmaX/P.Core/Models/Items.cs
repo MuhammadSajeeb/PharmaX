@@ -14,7 +14,8 @@ namespace P.Core.Models
         public string GenericName { get; set; }
         public int ReorderLevel { get; set; }
         public int CategoriesId { get; set; }
-        public int ShelfsId { get; set; }    
+        public int ShelfsId { get; set; }
+        public string Date { get; set; }
 
     }
 }
