@@ -13,7 +13,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Librarian</title>
+    <title>PharmaX</title>
     <meta name="description" content="Sajib Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -47,10 +47,10 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand">
-                    <h4>Librarian Panel </h4>
+                    <h4>PharmaX </h4>
                 </a>
                 <a class="navbar-brand hidden">
-                    <h4>L</h4>
+                    <h4>P</h4>
                 </a>
             </div>
 
@@ -63,19 +63,16 @@
                     <!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"><i class="menu-icon fa fa-list"></i>Categories</a>
+                            aria-expanded="false"><i class="menu-icon fa fa-list"></i>Shelfs</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-plus-circle"></i><a runat="server" href="~/Librarian/Categories/Add.aspx">Add Category</a></li>
-                            <li><i class="fa fa-list-alt "></i><a runat="server" href="~/Librarian/Categories/Status.aspx">Change Status</a></li>
+                            <li><i class="fa fa-plus-circle"></i><a runat="server" href="~/Shelf/Setup.aspx">Setup</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"><i class="menu-icon fa fa-book"></i>Books</a>
+                            aria-expanded="false"><i class="menu-icon fa fa-tags"></i>Categories</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-plus-circle"></i><a runat="server" href="~/Librarian/Books/Add.aspx">Add Book</a></li>
-                            <li><i class="fa fa-list-alt "></i><a href="~/Librarian">View Books</a></li>
-                            <li><i class="fa fa-edit"></i><a href="ui-social-buttons.html">Update Quantity</a></li>
+                            <li><i class="fa fa-plus-circle"></i><a runat="server" href="~/Category/Setup.aspx">Setup</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
