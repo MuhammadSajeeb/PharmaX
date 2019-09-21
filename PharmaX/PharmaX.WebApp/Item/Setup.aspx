@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Setup.aspx.cs" Inherits="PharmaX.WebApp.Item.Setup" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Setup.aspx.cs" Inherits="PharmaX.WebApp.Item.Setup" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <form runat="server" style="height: 100%">
-        <br />
+<asp:Content ID="Content2" ContentPlaceHolderID="HeaderContent" runat="server">
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
         <h4>Item Setup</h4>
         <div class="form-horizontal">
             <hr />
@@ -64,5 +64,5 @@
                 </div>
             </div>
         </div>
-    </form>
+     
 </asp:Content>

@@ -22,7 +22,7 @@
 
                                 <div class="col-md-4 mb-3">
                                     <asp:Label runat="server" ID="lblDate" AssociatedControlID="txtDate" Font-Size="Medium" CssClass="control-label">Purchase Date</asp:Label>
-                                    <asp:TextBox runat="server" ID="txtDate" TextMode="Date" Style="text-align: center"  CssClass="form-control" Font-Bold="true" Font-Size="Medium" />
+                                    <asp:TextBox runat="server" ID="txtDate" TextMode="Date" Style="text-align: center" CssClass="form-control" Font-Bold="true" Font-Size="Medium" />
                                 </div>
                             </div>
 
@@ -68,21 +68,70 @@
                                 <div class="col-md-4">
                                     <asp:Label runat="server" ID="lblExpire" AssociatedControlID="txtExpire" Font-Size="Medium" CssClass="control-label">Expire Date</asp:Label>
                                     <asp:TextBox runat="server" ID="txtExpire" TextMode="Date" Style="text-align: center" CssClass="form-control" Font-Bold="true" Font-Size="Medium" />
-                                    
+
                                 </div>
-                                
+
                                 <div class="col-md-4 mb-3">
-                                <br />    
+                                    <br />
                                     <asp:Button runat="server" ID="AddButton" Text="Add" CssClass="btn btn-info" Width="120px" Height="50px" />
                                 </div>
 
+                            </div>
+                            <div class="form-group">
+
+                                <div class="col-md-10">
+
+                                    <input type="button" id="btnShowLogin" class="btn btn-primary" value="Add" />
+                                </div>
                             </div>
                         </div>
 
                     </div>
                 </div>
             </div>
-        </div>
 
+            <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="ModalTitle"
+                aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;</button>
+                            <h4 class="modal-title" id="ModalTitle">Create New Categories</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <asp:Label runat="server" ID="lblCategoriesCode" CssClass="col-md-2 control-label" Font-Bold="true" Text="Code" Font-Size="Medium"></asp:Label>
+                                <div class="col-md-10">
+                                    <asp:TextBox runat="server" ID="txtCategoriesCode" CssClass="form-control" Font-Bold="true" Font-Size="Medium" Style="text-align: center" ReadOnly="true" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <asp:Label runat="server" ID="lblCategoriesName" CssClass="col-md-2 control-label" Font-Bold="true" Font-Size="Medium" Text="Name"></asp:Label>
+                                <div class="col-md-10">
+                                    <asp:TextBox runat="server" ID="txtCategoriesName" CssClass="form-control" Font-Bold="true" Font-Size="Medium" Style="text-align: center" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <asp:Button ID="CategoriesAddButton" Text="Save" runat="server" Class="btn btn-primary" />
+                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                Close</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $("#btnShowLogin").click(function () {
+                    $('#LoginModal').modal('show');
+                });
+            });
+        </script>
     </form>
+
 </asp:Content>

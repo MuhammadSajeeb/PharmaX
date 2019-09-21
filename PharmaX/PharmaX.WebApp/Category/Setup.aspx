@@ -1,12 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Setup.aspx.cs" Inherits="PharmaX.WebApp.Category.Setup" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Setup.aspx.cs" Inherits="PharmaX.WebApp.Category.Setup" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <form runat="server" style="height: 100%">
-        <br />
+<asp:Content ID="Content2" ContentPlaceHolderID="HeaderContent" runat="server">
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
         <h4>Category Setup</h4>
-        <br />
-
-
         <div class="form-horizontal">
             <hr />
             <br />
@@ -52,7 +49,7 @@
                                             <Columns>
                                                 <asp:TemplateField>
                                                     <ItemTemplate>
-                                                        <asp:ImageButton ImageUrl="~/Category/images/delete.png" OnClientClick="return confirm('Are You Sure Delete This Category')" runat="server" CommandName="Delete" ToolTip="Delete" Width="20px" Height="20px" />
+                                                        <asp:ImageButton ImageUrl="~/Category/img/delete.png" OnClientClick="return confirm('Are You Sure Delete This Category')" runat="server" CommandName="Delete" ToolTip="Delete" Width="20px" Height="20px" />
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <asp:BoundField DataField="Code" HeaderText="Code" />
@@ -71,5 +68,4 @@
                 </div>
             </div>
         </div>
-    </form>
 </asp:Content>
