@@ -10,7 +10,7 @@
 namespace PharmaX.WebApp.Purchase {
     
     
-    public partial class Cnfirm {
+    public partial class Entry {
         
         /// <summary>
         /// lblSuppliers control.
@@ -22,67 +22,13 @@ namespace PharmaX.WebApp.Purchase {
         protected global::System.Web.UI.WebControls.Label lblSuppliers;
         
         /// <summary>
-        /// SupplliersDropDownList control.
+        /// SuppliersDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList SupplliersDropDownList;
-        
-        /// <summary>
-        /// lblCategories control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCategories;
-        
-        /// <summary>
-        /// CategoriesDropDownList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList CategoriesDropDownList;
-        
-        /// <summary>
-        /// lblQty control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblQty;
-        
-        /// <summary>
-        /// txtQty control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQty;
-        
-        /// <summary>
-        /// lblManufacture control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblManufacture;
-        
-        /// <summary>
-        /// txtManufacture control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtManufacture;
+        protected global::System.Web.UI.WebControls.DropDownList SuppliersDropDownList;
         
         /// <summary>
         /// lblPurchaseCode control.
@@ -103,60 +49,6 @@ namespace PharmaX.WebApp.Purchase {
         protected global::System.Web.UI.WebControls.TextBox txtPurchaseCode;
         
         /// <summary>
-        /// lblItems control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblItems;
-        
-        /// <summary>
-        /// ItemsDropDownList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ItemsDropDownList;
-        
-        /// <summary>
-        /// lblCostPrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCostPrice;
-        
-        /// <summary>
-        /// txtCostPrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCostPrice;
-        
-        /// <summary>
-        /// lblExpire control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblExpire;
-        
-        /// <summary>
-        /// txtExpire control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtExpire;
-        
-        /// <summary>
         /// lblDate control.
         /// </summary>
         /// <remarks>
@@ -173,6 +65,42 @@ namespace PharmaX.WebApp.Purchase {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDate;
+        
+        /// <summary>
+        /// lblCategories control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCategories;
+        
+        /// <summary>
+        /// CategoriesDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList CategoriesDropDownList;
+        
+        /// <summary>
+        /// lblItems control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblItems;
+        
+        /// <summary>
+        /// ItemsDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ItemsDropDownList;
         
         /// <summary>
         /// lblBatch control.
@@ -193,6 +121,42 @@ namespace PharmaX.WebApp.Purchase {
         protected global::System.Web.UI.WebControls.TextBox txtBatch;
         
         /// <summary>
+        /// lblQty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblQty;
+        
+        /// <summary>
+        /// txtQty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtQty;
+        
+        /// <summary>
+        /// lblCostPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCostPrice;
+        
+        /// <summary>
+        /// txtCostPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCostPrice;
+        
+        /// <summary>
         /// lblSellingPrice control.
         /// </summary>
         /// <remarks>
@@ -209,6 +173,24 @@ namespace PharmaX.WebApp.Purchase {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSellingPrice;
+        
+        /// <summary>
+        /// lblExpire control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblExpire;
+        
+        /// <summary>
+        /// txtExpire control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtExpire;
         
         /// <summary>
         /// AddButton control.

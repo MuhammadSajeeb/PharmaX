@@ -57,7 +57,7 @@
                                         <Columns>
                                             <asp:TemplateField>
                                                 <ItemTemplate>
-                                                    <asp:ImageButton ImageUrl="~/Category/images/delete.png" OnClientClick="return confirm('Are You Sure Delete This Shelfs')" runat="server" CommandName="Delete" ToolTip="Delete" Width="20px" Height="20px" />
+                                                    <asp:ImageButton ImageUrl="~/Shelf/img/delete.png" OnClientClick="return confirm('Are You Sure Delete This Shelfs')" runat="server" CommandName="Delete" ToolTip="Delete" Width="20px" Height="20px" />
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                             <asp:BoundField DataField="Name" HeaderText="Name" />

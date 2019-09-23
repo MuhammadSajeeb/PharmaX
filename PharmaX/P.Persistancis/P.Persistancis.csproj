@@ -45,6 +45,7 @@
     <Compile Include="Repositories\CategoriesRepository.cs" />
     <Compile Include="Repositories\ItemRepository.cs" />
     <Compile Include="Repositories\MainRepository.cs" />
+    <Compile Include="Repositories\PurchaseRepository.cs" />
     <Compile Include="Repositories\ShelfRepository.cs" />
     <Compile Include="Repositories\SupplierRepository.cs" />
   </ItemGroup>
