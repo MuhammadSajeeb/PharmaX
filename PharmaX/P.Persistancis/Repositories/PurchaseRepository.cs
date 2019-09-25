@@ -117,6 +117,49 @@ namespace P.Persistancis.Repositories
 
             return _PurchasesList;
         }
+        public List<PurchaseDetails> GetAllPurchaseDetails(string id)
+        {
+            var _PurchaseDetaillist = new List<PurchaseDetails>();
+            string query = ("Select *From PurchaseDetails Where PurchaseId='"+id+"'");
+            var reader = _MainRepository.Reader(query, _MainRepository.ConnectionString());
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    var _PurchaseDetails = new PurchaseDetails();
+                    _PurchaseDetails.PurchaseId = reader["PurchaseId"].ToString();
+                    _PurchaseDetails.Item = reader["Item"].ToString();
+                    _PurchaseDetails.Batch = Convert.ToInt32(reader["Batch"].ToString());
+                    _PurchaseDetails.Qty = Convert.ToDecimal(reader["Qty"].ToString());
+                    _PurchaseDetails.CostPrice = Convert.ToDecimal(reader["CostPrice"].ToString());
+                    _PurchaseDetails.TotalPrice = Convert.ToDecimal(reader["TotalPrice"].ToString());
+                    _PurchaseDetails.SellingPrice = Convert.ToDecimal(reader["SellingPrice"].ToString());
+                    _PurchaseDetails.Expire = reader["Expire"].ToString();
 
+                    _PurchaseDetaillist.Add(_PurchaseDetails);
+                }
+            }
+            reader.Close();
+
+            return _PurchaseDetaillist;
+        }
+        public Purchases PurchaseData(string id)
+        {
+            Purchases _PurchaseDetails = null;
+
+            string query = "select *From Purchase Where PurchaseId='" + id + "'";
+            var reader = _MainRepository.Reader(query, _MainRepository.ConnectionString());
+            if (reader.HasRows)
+            {
+                reader.Read();
+                _PurchaseDetails = new Purchases();
+                _PurchaseDetails.PurchaseId = reader["PurchaseId"].ToString();
+                _PurchaseDetails.Date = reader["Date"].ToString();
+                _PurchaseDetails.Status = reader["Status"].ToString();
+            }
+            reader.Close();
+
+            return _PurchaseDetails;
+        }
     }
 }

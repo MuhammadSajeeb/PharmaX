@@ -123,7 +123,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Purchase Details :</h6>
                         <a class="collapse-item" runat="server" href="~/Purchase/Entry.aspx">Entry</a>
-                        <a class="collapse-item" runat="server" href="~/Purchase/Purchaselist.aspx">Purchase list</a>
+                        <a class="collapse-item" runat="server" href="~/Purchase/List.aspx">Purchase list</a>
                     </div>
                 </div>
             </li>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Purchaselist.aspx.cs" Inherits="PharmaX.WebApp.Purchase.Purchaselist" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="List.aspx.cs" Inherits="PharmaX.WebApp.Purchase.List" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeaderContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -14,7 +14,7 @@
                 <div class="card" style="border-top-color: red; border-top-style: solid; border-width: 2px">
                     <div class="card-body card-block">
                         <div class="form-group">
-                                <asp:GridView ID="PurchaseListGridView" runat="server" DataKeyNames="PurchaseId" EmptyDataText="No Items Available Now" Width="100%" CssClass="table table-striped table-bordered table-hover" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="10" ForeColor="Black" GridLines="Horizontal" AllowPaging="true" CellSpacing="1">
+                                <asp:GridView ID="PurchaseListGridView" runat="server" DataKeyNames="PurchaseId" EmptyDataText="No Items Available Now" Width="100%" CssClass="table table-striped table-bordered table-hover" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="10" ForeColor="Black" GridLines="Horizontal" AllowPaging="true" CellSpacing="1" OnSelectedIndexChanged="PurchaseListGridView_SelectedIndexChanged">
                                     <Columns>
                                         <asp:TemplateField>
                                             <ItemTemplate>
@@ -28,7 +28,7 @@
                                         <asp:BoundField DataField="GrandTotal" HeaderText="Total" />
                                         <asp:BoundField DataField="Status" HeaderText="IsPayment" />
                                         <asp:BoundField DataField="Date" HeaderText="Date" />
-                                        <asp:CommandField HeaderText="Action" SelectText="Edit" ShowSelectButton="True">
+                                        <asp:CommandField HeaderText="Action" SelectText="Details" ShowSelectButton="True">
                                             <ItemStyle ForeColor="#CC0000" />
                                         </asp:CommandField>
                                     </Columns>

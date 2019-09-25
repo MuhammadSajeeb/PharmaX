@@ -3337,6 +3337,7 @@
     <Content Include="Admin.Master" />
     <Content Include="Purchase\css\sb-admin-2.css" />
     <Content Include="Purchase\css\sb-admin-2.min.css" />
+    <Content Include="Purchase\Details.aspx" />
     <Content Include="Purchase\img\delete.png" />
     <Content Include="Purchase\img\undraw_posting_photo.svg" />
     <Content Include="Purchase\js\demo\chart-area-demo.js" />
@@ -3345,7 +3346,7 @@
     <Content Include="Purchase\js\demo\datatables-demo.js" />
     <Content Include="Purchase\js\sb-admin-2.js" />
     <Content Include="Purchase\js\sb-admin-2.min.js" />
-    <Content Include="Purchase\Purchaselist.aspx" />
+    <Content Include="Purchase\List.aspx" />
     <Content Include="Purchase\vendor\bootstrap\js\bootstrap.bundle.js" />
     <Content Include="Purchase\vendor\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="Purchase\vendor\bootstrap\js\bootstrap.js" />
@@ -10344,6 +10345,13 @@
       <DependentUpon>ViewAll.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Purchase\Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Purchase\Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Purchase\Entry.aspx.cs">
       <DependentUpon>Entry.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -10351,12 +10359,12 @@
     <Compile Include="Purchase\Entry.aspx.designer.cs">
       <DependentUpon>Entry.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Purchase\Purchaselist.aspx.cs">
-      <DependentUpon>Purchaselist.aspx</DependentUpon>
+    <Compile Include="Purchase\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Purchase\Purchaselist.aspx.designer.cs">
-      <DependentUpon>Purchaselist.aspx</DependentUpon>
+    <Compile Include="Purchase\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
     </Compile>
     <Compile Include="Shelf\Setup.aspx.cs">
       <DependentUpon>Setup.aspx</DependentUpon>

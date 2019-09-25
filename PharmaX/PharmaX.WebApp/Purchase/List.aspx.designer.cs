@@ -10,7 +10,7 @@
 namespace PharmaX.WebApp.Purchase {
     
     
-    public partial class Purchaselist {
+    public partial class List {
         
         /// <summary>
         /// PurchaseListGridView control.
