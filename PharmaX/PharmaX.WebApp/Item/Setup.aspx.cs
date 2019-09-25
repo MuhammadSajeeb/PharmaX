@@ -59,17 +59,23 @@ namespace PharmaX.WebApp.Item
                 txtCode.Text = "101";
             }
         }
-        decimal StoreQty;
+        decimal RemainShelf;
         public void GetStoreQtyByShelfs()
         {
             try
             {
                 int Id = Convert.ToInt32(ShelfsDropDownList.SelectedValue);
-                var getQTY = _ItemRepository.GetQtyByShelfs(Id);
+                decimal countShelf = _ItemRepository.CountShelf(Id);
+
+                int Id1 = Convert.ToInt32(ShelfsDropDownList.SelectedValue);
+                var getQTY = _ItemRepository.GetQtyByShelfs(Id1);
                 if (getQTY != null)
                 {
-                    lblStoreQty.Text ="Store Of Qty : "+ Convert.ToInt32(getQTY.StoreQty).ToString();
-                    StoreQty = (getQTY.StoreQty);
+                    
+                    decimal StoreQty = (getQTY.StoreQty);
+                    RemainShelf = StoreQty - countShelf;
+
+                    lblStoreQty.Text = "Store Of Remain Qty : " + Convert.ToInt32(RemainShelf).ToString();
                 }
             }
             catch
@@ -86,40 +92,44 @@ namespace PharmaX.WebApp.Item
         {
             try
             {
-                int Id = Convert.ToInt32(ShelfsDropDownList.SelectedValue);
-
-                decimal totalqtyByshelfs = _ItemRepository.GetTotalStoreByShelfs(Id);
-                
-                if (totalqtyByshelfs <= StoreQty)
+                if(CategoriesDropDownList.SelectedIndex>0 && ShelfsDropDownList.SelectedIndex>0)
                 {
-                    Items _Items = new Items();
-                    _Items.Code = txtCode.Text;
-                    _Items.Name = txtName.Text;
-                    _Items.GenericName = txtGenericName.Text;
-                    _Items.ReorderLevel = Convert.ToInt32(txtReorderLevel.Text);
-                    _Items.CategoriesId = Convert.ToInt32(CategoriesDropDownList.SelectedValue);
-                    _Items.ShelfsId = Convert.ToInt32(ShelfsDropDownList.SelectedValue);
-
-                    int saveSuccess = _ItemRepository.Add(_Items);
-                    if(saveSuccess>0)
+                    if (RemainShelf >= 0)
                     {
-                        lblmsg.Text = "This Item Save Successefully!!....";
-                        lblmsg.ForeColor = Color.Green;
-                        AutoCodeGenerate();
+                        Items _Items = new Items();
+                        _Items.Code = txtCode.Text;
+                        _Items.Name = txtName.Text;
+                        _Items.GenericName = txtGenericName.Text;
+                        _Items.ReorderLevel = Convert.ToInt32(txtReorderLevel.Text);
+                        _Items.CategoriesId = Convert.ToInt32(CategoriesDropDownList.SelectedValue);
+                        _Items.ShelfsId = Convert.ToInt32(ShelfsDropDownList.SelectedValue);
 
-                        Response.Redirect(Request.Url.AbsoluteUri);
+                        int saveSuccess = _ItemRepository.Add(_Items);
+                        if (saveSuccess > 0)
+                        {
+                            lblmsg.Text = "This Item Save Successefully!!....";
+                            lblmsg.ForeColor = Color.Green;
+                            AutoCodeGenerate();
+
+                            Response.Redirect(Request.Url.AbsoluteUri);
+                        }
+                        else
+                        {
+                            lblmsg.Text = "This Item Saving Failed!!....";
+                            lblmsg.ForeColor = Color.Red;
+                        }
                     }
                     else
                     {
-                        lblmsg.Text = "This Item Saving Failed!!....";
+                        lblmsg.Text = "This Shelf Fully Done!!....Please Try Another Shelf";
                         lblmsg.ForeColor = Color.Red;
                     }
                 }
                 else
                 {
-                    lblmsg.Text = "This Shelf Fully Done!!....Please Try Another Shelf";
-                    lblmsg.ForeColor = Color.Red;
+                    CategoriesDropDownList.Focus();
                 }
+
             }
             catch(Exception ex)
             {

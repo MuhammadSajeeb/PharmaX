@@ -13,24 +13,24 @@ namespace P.Persistancis.Repositories
 
         public decimal AlreadyExistData()
         {
-            string query = "Select Count(*)from Categories ";
+            string query = "Select Count(*)from Purchase ";
             return _MainRepository.ExecuteScalar(query, _MainRepository.ConnectionString());
         }
-        public Items GetLastCode()
+        public Purchases GetLastPurchaseId()
         {
-            Items _Items = null;
+            Purchases _Purchase = null;
 
-            string query = "Select top 1 Code from Items order by Code desc";
+            string query = "Select top 1 PurchaseId from Purchase order by PurchaseId desc";
             var reader = _MainRepository.Reader(query, _MainRepository.ConnectionString());
             if (reader.HasRows)
             {
                 reader.Read();
-                _Items = new Items();
-                _Items.Code = (reader["Code"].ToString());
+                _Purchase = new Purchases();
+                _Purchase.PurchaseId = (reader["PurchaseId"].ToString());
             }
             reader.Close();
 
-            return _Items;
+            return _Purchase;
         }
         public List<Suppliers> GetAllSupplliers()
         {

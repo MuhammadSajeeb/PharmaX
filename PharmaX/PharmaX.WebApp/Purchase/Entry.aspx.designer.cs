@@ -13,6 +13,15 @@ namespace PharmaX.WebApp.Purchase {
     public partial class Entry {
         
         /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
         /// lblSuppliers control.
         /// </summary>
         /// <remarks>
@@ -31,22 +40,22 @@ namespace PharmaX.WebApp.Purchase {
         protected global::System.Web.UI.WebControls.DropDownList SuppliersDropDownList;
         
         /// <summary>
-        /// lblPurchaseCode control.
+        /// lblPurchaseId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPurchaseCode;
+        protected global::System.Web.UI.WebControls.Label lblPurchaseId;
         
         /// <summary>
-        /// txtPurchaseCode control.
+        /// txtPurchaseId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPurchaseCode;
+        protected global::System.Web.UI.WebControls.TextBox txtPurchaseId;
         
         /// <summary>
         /// lblDate control.
@@ -209,6 +218,15 @@ namespace PharmaX.WebApp.Purchase {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView PurchaseGridView;
+        
+        /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
         /// lblAmount control.

@@ -31,6 +31,11 @@ namespace P.Persistancis.Repositories
 
             return _Items;
         }
+        public decimal CountShelf(int id)
+        {
+            string query = "select COUNT(*) from Items where ShelfsId='"+id+"'";
+            return _MainRepository.ExecuteScalar(query, _MainRepository.ConnectionString());
+        }
         public List<Categories> GetAllCategories()
         {
             var _CategoryList = new List<Categories>();
