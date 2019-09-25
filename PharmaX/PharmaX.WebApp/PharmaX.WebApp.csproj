@@ -4939,6 +4939,7 @@
     <Content Include="Purchase\vendor\jquery\jquery.min.js" />
     <Content Include="Purchase\vendor\jquery\jquery.slim.js" />
     <Content Include="Purchase\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="Purchase\ViewAll.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -4951,6 +4952,7 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="WebForm1.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -10351,6 +10353,13 @@
     <Compile Include="Purchase\Entry.aspx.designer.cs">
       <DependentUpon>Entry.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Purchase\ViewAll.aspx.cs">
+      <DependentUpon>ViewAll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Purchase\ViewAll.aspx.designer.cs">
+      <DependentUpon>ViewAll.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Shelf\Setup.aspx.cs">
       <DependentUpon>Setup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -10378,6 +10387,13 @@
     </Compile>
     <Compile Include="testing.aspx.designer.cs">
       <DependentUpon>testing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

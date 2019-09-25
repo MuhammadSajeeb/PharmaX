@@ -22,6 +22,7 @@ namespace PharmaX.WebApp.Item
         {
             ItemsGridView.DataSource = _ItemRepository.GetAllItems();
             ItemsGridView.DataBind();
+
         }
     }
 }

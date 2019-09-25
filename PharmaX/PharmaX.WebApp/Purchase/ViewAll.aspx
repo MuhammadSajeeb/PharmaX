@@ -1,9 +1,10 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="PharmaX.WebApp.Admin" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewAll.aspx.cs" Inherits="PharmaX.WebApp.Purchase.ViewAll" %>
 
 <!DOCTYPE html>
+<html lang="en">
 
-<html>
-<head runat="server">
+<head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,14 +20,30 @@
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">    
 
-    <asp:ContentPlaceHolder ID="HeaderContent" runat="server">
-    </asp:ContentPlaceHolder>
+  <!-- Custom styles for this page -->
+    <link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/dataTables.bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/responsive/1.0.7/css/responsive.bootstrap.min.css" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('[id*=gvCustomers]').prepend($("<thead></thead>").append($(this).find("tr:first"))).DataTable({
+                "responsive": true,
+                "sPaginationType": "full_numbers"
+            });
+        });
+    </script>
+
 </head>
-<body>
 
-    <div id="wrapper">
+<body id="page-top">
 
-        <!-- Sidebar -->
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
@@ -147,13 +164,15 @@
             </div>
 
         </ul>
-        <!-- End of Sidebar -->
+    <!-- End of Sidebar -->
 
-        <div id="content-wrapper" class="d-flex flex-column">
-            <!-- Main Content -->
-            <div id="content">
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
 
-                <!-- Topbar -->
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
@@ -307,7 +326,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Md Sajib</span>
-                                <asp:Image ID="Image1" class="img-profile rounded-circle" runat="server" ImageUrl="~/img/Sajib.jpg" Height="40px" />
+                                <asp:Image ID="Image3" class="img-profile rounded-circle" runat="server" ImageUrl="~/img/Sajib.jpg" Height="40px" />
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -334,23 +353,42 @@
                     </ul>
 
                 </nav>
-                <!-- End of Topbar -->
-
+        <!-- End of Topbar -->
+          <!-- Start Form Content -->
+          <form id="form3" runat="server">
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <form id="form1" runat="server">
-                        <div>
-                            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                            </asp:ContentPlaceHolder>
+
+                    <!-- Page Heading -->
+                     <h3>Purchase List</h3>
+                    <!-- DataTales Example -->
+                    <div class="card style="border-top-color: red; border-top-style: solid; border-width: 2px"">
+                        <div class="card-body card-block">
+                            <div class="table-responsive">
+                                <div>
+                                    <asp:GridView ID="gvCustomers" runat="server" class="table table-striped table-bordered table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+                                        <Columns>
+                                            <asp:BoundField DataField="Code" HeaderText="Code" SortExpression="Code" />
+                                            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                                            <asp:BoundField DataField="GenericName" HeaderText="GenericName" SortExpression="GenericName" />
+                                            <asp:BoundField DataField="ReorderLevel" HeaderText="ReorderLevel" SortExpression="ReorderLevel" />
+                                            <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" />
+                                        </Columns>
+                                    </asp:GridView>
+                                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PharmaXConnectionString %>" SelectCommand="SELECT [Code], [Name], [GenericName], [ReorderLevel], [Date] FROM [Items]"></asp:SqlDataSource>
+                                </div>
+
+                            </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
                 <!-- /.container-fluid -->
+            </form>
+          <!-- End Form Content -->
+        </div>
+      <!-- End of Main Content -->
 
-            </div>
-            <!-- End of Content Wrapper -->
-
-            <!-- Footer -->
+      <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
@@ -358,33 +396,57 @@
                     </div>
                 </div>
             </footer>
-            <!-- End of Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
+      <!-- End of Footer -->
 
     </div>
-    <!-- End of Page Wrapper -->
+    <!-- End of Content Wrapper -->
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  </div>
+  <!-- End of Page Wrapper -->
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-      <!-- Page level plugins -->
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="js/demo/datatables-demo.js"></script>
 
 </body>
+
 </html>
+
 
