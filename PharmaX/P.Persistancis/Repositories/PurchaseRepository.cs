@@ -92,6 +92,31 @@ namespace P.Persistancis.Repositories
 
             return _ItemsList;
         }
+        public List<Purchases> GetAllPurchase()
+        {
+            var _PurchasesList = new List<Purchases>();
+            string query = ("select Suppliers.Name,Purchase.PurchaseId,Purchase.TotalAmount,Purchase.Discount,Purchase.GrandTotal,Purchase.Status,Purchase.Date from Purchase join Suppliers on Suppliers.Id = Purchase.SupplierId");
+            var reader = _MainRepository.Reader(query, _MainRepository.ConnectionString());
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    var _Purchases = new Purchases();
+                    _Purchases.Name =  reader["Name"].ToString();
+                    _Purchases.PurchaseId = reader["PurchaseId"].ToString();
+                    _Purchases.TotalAmount = Convert.ToDecimal(reader["TotalAmount"].ToString());
+                    _Purchases.Discount = Convert.ToDecimal(reader["Discount"].ToString());
+                    _Purchases.GrandTotal = Convert.ToDecimal(reader["GrandTotal"].ToString());
+                    _Purchases.Status = reader["Status"].ToString();
+                    _Purchases.Date = reader["Date"].ToString();
+
+                    _PurchasesList.Add(_Purchases);
+                }
+            }
+            reader.Close();
+
+            return _PurchasesList;
+        }
 
     }
 }

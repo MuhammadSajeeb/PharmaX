@@ -11,6 +11,7 @@ namespace P.Core.Models
         public int Id { get; set; }
         public string PurchaseId { get; set; }
         public int SupplierId { get; set; }
+        public string Name { get; set; }
         public decimal TotalAmount { get; set; }
         public decimal Discount { get; set; }
         public decimal GrandTotal { get; set; }
