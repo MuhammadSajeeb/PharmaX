@@ -133,5 +133,10 @@ namespace P.Persistancis.Repositories
 
             return _SaleDetailsList;
         }
+        public int SalesSubmit(Sales _Sales)
+        {
+            string query = "Insert Into Sales(CustomerContact,SalesId,TotalAmount,Discount,GrandTotal,PaidAmount,Changes,RemainingDue,Status,Date) Values ('" + _Sales.CustomerContact + "','" + _Sales.SalesId + "','" + _Sales.TotalAmount + "','" + _Sales.Discount + "','" + _Sales.GrandTotal + "','" + _Sales.PaidAmount + "','" + _Sales.Changes + "','" + _Sales.RemainingDue + "','" + _Sales.Status + "','" + _Sales.Date + "')";
+            return _MainRepository.ExecuteNonQuery(query, _MainRepository.ConnectionString());
+        }
     }
 }

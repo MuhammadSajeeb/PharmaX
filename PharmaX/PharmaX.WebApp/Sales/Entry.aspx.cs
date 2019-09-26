@@ -18,7 +18,9 @@ namespace PharmaX.WebApp.Sale
             {
                 AutoGenerateSalesId();
                 GetAllCategories();
+                LoadSalesOrder();
                 ItemsDropDownList.Items.Insert(0, new ListItem("None of Items", "0"));
+                txtAmount.Text = "1000";
             }
         }
         public void AutoGenerateSalesId()
@@ -102,11 +104,21 @@ namespace PharmaX.WebApp.Sale
             SalesGridView.DataSource = _SalesRepository.GetSalesOrderById(Id);
             SalesGridView.DataBind();
         }
+        public void GridviewRowSum()
+        {
+            decimal TotalAMount = 0;
+            foreach (GridViewRow row in SalesGridView.Rows)
+            {
+
+                TotalAMount = TotalAMount + Convert.ToDecimal(row.Cells[5].Text); //Where Cells is the column. Just changed the index of cells
+            }
+            txtAmount.Text = TotalAMount.ToString();
+        }
         protected void AddButton_Click(object sender, EventArgs e)
         {
             try
             {
-                if(CategoriesDropDownList.SelectedIndex>0 && ItemsDropDownList.SelectedIndex>0 && txtQty.Text!=null)
+                if(txtCustomerContact.Text!=null && CategoriesDropDownList.SelectedIndex>0 && ItemsDropDownList.SelectedIndex>0 && txtQty.Text!=null)
                 {
                     if(Convert.ToDecimal(lblStock.Text) >= Convert.ToDecimal(txtQty.Text))
                     {
@@ -122,7 +134,7 @@ namespace PharmaX.WebApp.Sale
                         if(success>0)
                         {
                             LoadSalesOrder();
-                            
+                            GridviewRowSum();
                             ItemsDropDownList.ClearSelection();
                             lblSellingPrice.Text = "";
                             lblStock.Text = "";
@@ -156,6 +168,7 @@ namespace PharmaX.WebApp.Sale
                 if (deletesuccess > 0)
                 {
                     LoadSalesOrder();
+                    GridviewRowSum();
                 }
 
             }
@@ -163,6 +176,81 @@ namespace PharmaX.WebApp.Sale
             {
  
             }
+        }
+
+        protected void txtDiscount_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal totalamount = Convert.ToDecimal(txtAmount.Text);
+                decimal discountamount = Convert.ToDecimal(txtDiscount.Text);
+
+                decimal cal = totalamount - discountamount;
+
+                txtGrandTotal.Text = cal.ToString();
+            }
+            catch { }
+
+        }
+
+        protected void txtPaidAmount_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal grandtotal = Convert.ToDecimal(txtGrandTotal.Text);
+                decimal Paidamount = Convert.ToDecimal(txtPaidAmount.Text);
+
+                if (Paidamount >= grandtotal)
+                {
+                    decimal cal = Paidamount - grandtotal;
+                    txtChanges.Text = cal.ToString();
+                    txtRemainingDue.Text = "00";
+                }
+                else
+                {
+                    decimal cal = grandtotal - Paidamount;
+                    txtChanges.Text = "00";
+                    txtRemainingDue.Text = cal.ToString();
+                }
+            }
+            catch { }
+
+        }
+        protected void SaleSubmitButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Sales _Sales = new Sales();
+                _Sales.CustomerContact = txtCustomerContact.Text;
+                _Sales.SalesId = txtSalesId.Text;
+                _Sales.TotalAmount = Convert.ToDecimal(txtAmount.Text);
+                _Sales.Discount = Convert.ToDecimal(txtDiscount.Text);
+                _Sales.GrandTotal = Convert.ToDecimal(txtGrandTotal.Text);
+                _Sales.PaidAmount = Convert.ToDecimal(txtPaidAmount.Text);
+                _Sales.Changes = Convert.ToDecimal(txtChanges.Text);
+                _Sales.RemainingDue = Convert.ToDecimal(txtRemainingDue.Text);
+                if(_Sales.RemainingDue > 0)
+                {
+                    _Sales.Status = "Due";
+                }
+                else
+                {
+                    _Sales.Status = "Paid";
+                }
+                _Sales.Date = txtDate.Text;
+
+                int success = _SalesRepository.SalesSubmit(_Sales);
+                if(success > 0)
+                {
+                    Response.Redirect(Request.Url.AbsoluteUri);
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Failed Submit');", true);
+                }
+
+            }
+            catch { }
         }
     }
 }

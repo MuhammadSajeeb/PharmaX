@@ -247,39 +247,66 @@ namespace PharmaX.WebApp.Sale {
         protected global::System.Web.UI.WebControls.TextBox txtGrandTotal;
         
         /// <summary>
-        /// lblIsPaid control.
+        /// lblPaidAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIsPaid;
+        protected global::System.Web.UI.WebControls.Label lblPaidAmount;
         
         /// <summary>
-        /// PaidRadioButton control.
+        /// txtPaidAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton PaidRadioButton;
+        protected global::System.Web.UI.WebControls.TextBox txtPaidAmount;
         
         /// <summary>
-        /// DueRadioButton control.
+        /// lblChanges control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton DueRadioButton;
+        protected global::System.Web.UI.WebControls.Label lblChanges;
         
         /// <summary>
-        /// PurchaseSubmitButton control.
+        /// txtChanges control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button PurchaseSubmitButton;
+        protected global::System.Web.UI.WebControls.TextBox txtChanges;
+        
+        /// <summary>
+        /// lblRemainingDue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRemainingDue;
+        
+        /// <summary>
+        /// txtRemainingDue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRemainingDue;
+        
+        /// <summary>
+        /// SaleSubmitButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button SaleSubmitButton;
     }
 }

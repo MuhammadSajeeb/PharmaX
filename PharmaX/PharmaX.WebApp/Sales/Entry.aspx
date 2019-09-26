@@ -67,14 +67,14 @@
                                 <asp:TextBox runat="server" ID="txtQty" Style="text-align: center" CssClass="form-control" Font-Bold="true" Font-Size="Medium" />
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="col-md-10">
-                                <br />
-                                <asp:Button runat="server" ID="AddButton" Text="Add" CssClass="btn btn-info" Width="100px" OnClick="AddButton_Click"/>
-
-                            </div>
-                        </div>
+                                <div class="form-group">
+                                    <div class="col-md-10">
+                                        <br />
+                                        <asp:Button runat="server" ID="AddButton" Text="Add" CssClass="btn btn-info" Width="100px" OnClick="AddButton_Click" />
+                                    </div>
+                                </div>
                     </div>
+
                     <div class="col-md-8">
                         <br />
                         <div class="form-group">
@@ -133,7 +133,7 @@
                         <div class="form-group">
                             <asp:Label runat="server" ID="lblDiscount" CssClass="col-md-2 control-label" Font-Bold="true" Text="Discount(Tk)" Font-Size="Medium"></asp:Label>
                             <div class="col-md-10">
-                                <asp:TextBox runat="server" ID="txtDiscount" CssClass="form-control" Font-Bold="true" Font-Size="Medium" Style="text-align: center" ReadOnly="false" AutoPostBack="true" />
+                                <asp:TextBox runat="server" ID="txtDiscount" CssClass="form-control" Font-Bold="true" Font-Size="Medium" Style="text-align: center" ReadOnly="false" AutoPostBack="true" OnTextChanged="txtDiscount_TextChanged" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -143,21 +143,29 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <asp:Label runat="server" ID="lblIsPaid" CssClass="col-md-2 control-label" Font-Bold="true" Font-Size="Medium" Text="IsPaid"></asp:Label>
-                            <div class="form-check form-check-inline">
-                                <asp:RadioButton ID="PaidRadioButton" Text="Paid" runat="server" CssClass="form-control" GroupName="Ispaid" />
+                            <asp:Label runat="server" ID="lblPaidAmount" CssClass="col-md-2 control-label" Font-Bold="true" Font-Size="Medium" Text="Paid Amount(Tk)"></asp:Label>
+                            <div class="col-md-10">
+                                <asp:TextBox runat="server" ID="txtPaidAmount" CssClass="form-control" Font-Bold="true" Font-Size="Medium" Style="text-align: center" AutoPostBack="true" OnTextChanged="txtPaidAmount_TextChanged" />
                             </div>
-                            <div class="form-check form-check-inline">
-                                <asp:RadioButton ID="DueRadioButton" Text="Due" runat="server" CssClass="form-control" GroupName="Ispaid" />
+                        </div>
+                        <div class="form-group">
+                            <asp:Label runat="server" ID="lblChanges" CssClass="col-md-2 control-label" Font-Bold="true" Font-Size="Medium" Text="Changes Amount(Tk)"></asp:Label>
+                            <div class="col-md-10">
+                                <asp:TextBox runat="server" ID="txtChanges" CssClass="form-control" Font-Bold="true" Font-Size="Medium" Style="text-align: center"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <asp:Label runat="server" ID="lblRemainingDue" CssClass="col-md-2 control-label" Font-Bold="true" Font-Size="Medium" Text="Remaining Due(Tk)"></asp:Label>
+                            <div class="col-md-10">
+                                <asp:TextBox runat="server" ID="txtRemainingDue" CssClass="form-control" Font-Bold="true" Font-Size="Medium" Style="text-align: center" />
                             </div>
                         </div>
                             </ContentTemplate>
                         </asp:UpdatePanel>
 
-
                     </div>
                     <div class="modal-footer">
-                        <asp:Button ID="PurchaseSubmitButton" Text="Submit" runat="server" Class="btn btn-info" />
+                        <asp:Button ID="SaleSubmitButton" Text="Submit" runat="server" Class="btn btn-info" OnClick="SaleSubmitButton_Click" />
                         <button type="button" class="btn btn-default" data-dismiss="modal">
                             Close</button>
                     </div>
