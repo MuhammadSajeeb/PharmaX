@@ -47,6 +47,7 @@
     <Compile Include="Repositories\MainRepository.cs" />
     <Compile Include="Repositories\PurchaseRepository.cs" />
     <Compile Include="Repositories\ShelfRepository.cs" />
+    <Compile Include="Repositories\StockRepository.cs" />
     <Compile Include="Repositories\SupplierRepository.cs" />
   </ItemGroup>
   <ItemGroup>
