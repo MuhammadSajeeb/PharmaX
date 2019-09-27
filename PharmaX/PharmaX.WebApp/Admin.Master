@@ -129,12 +129,24 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSales" aria-expanded="true" aria-controls="collapseSales">
+                    <i class="fas fa-fw fa-paper-plane"></i>
+                    <span>Sales</span>
+                </a>
+                <div id="collapseSales" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Purchase Details :</h6>
+                        <a class="collapse-item" runat="server" href="~/Sales/Entry.aspx">Entry</a>
+                        <a class="collapse-item" runat="server" href="~/Sales/List.aspx">Sale list</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link" runat="server" href="~/Stock/List.aspx">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Stocks</span></a>
             </li>
-
-
 
 
 <%--            <!-- Nav Item - Charts -->

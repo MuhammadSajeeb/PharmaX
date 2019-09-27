@@ -46,7 +46,7 @@
     <Compile Include="Models\Purchases.cs" />
     <Compile Include="Models\PurchaseDetails.cs" />
     <Compile Include="Models\SaleDetails.cs" />
-    <Compile Include="Models\Sales.cs" />
+    <Compile Include="Models\Sale.cs" />
     <Compile Include="Models\Shelfs.cs" />
     <Compile Include="Models\Stocks.cs" />
     <Compile Include="Models\Suppliers.cs" />

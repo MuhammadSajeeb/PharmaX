@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PharmaX.WebApp.Sale {
+namespace PharmaX.WebApp.Sales {
     
     
     public partial class Entry {

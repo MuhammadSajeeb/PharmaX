@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P.Core.Models
 {
-    public class Sales
+    public class Sale
     {
         public int Id { get; set; }
         public string CustomerContact { get; set; }

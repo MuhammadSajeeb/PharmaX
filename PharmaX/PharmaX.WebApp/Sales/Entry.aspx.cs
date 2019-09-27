@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace PharmaX.WebApp.Sale
+namespace PharmaX.WebApp.Sales
 {
     public partial class Entry : System.Web.UI.Page
     {
@@ -220,7 +220,7 @@ namespace PharmaX.WebApp.Sale
         {
             try
             {
-                Sales _Sales = new Sales();
+                Sale _Sales = new Sale();
                 _Sales.CustomerContact = txtCustomerContact.Text;
                 _Sales.SalesId = txtSalesId.Text;
                 _Sales.TotalAmount = Convert.ToDecimal(txtAmount.Text);

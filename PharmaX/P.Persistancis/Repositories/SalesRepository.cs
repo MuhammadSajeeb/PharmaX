@@ -16,16 +16,16 @@ namespace P.Persistancis.Repositories
             string query = "Select Count(*)from Sales ";
             return _MainRepository.ExecuteScalar(query, _MainRepository.ConnectionString());
         }
-        public Sales GetLastPurchaseId()
+        public Sale GetLastPurchaseId()
         {
-            Sales _Sales = null;
+            Sale _Sales = null;
 
             string query = "Select top 1 SalesId from Sales order by SalesId desc";
             var reader = _MainRepository.Reader(query, _MainRepository.ConnectionString());
             if (reader.HasRows)
             {
                 reader.Read();
-                _Sales = new Sales();
+                _Sales = new Sale();
                 _Sales.SalesId = (reader["SalesId"].ToString());
             }
             reader.Close();
@@ -133,10 +133,38 @@ namespace P.Persistancis.Repositories
 
             return _SaleDetailsList;
         }
-        public int SalesSubmit(Sales _Sales)
+        public int SalesSubmit(Sale _Sales)
         {
             string query = "Insert Into Sales(CustomerContact,SalesId,TotalAmount,Discount,GrandTotal,PaidAmount,Changes,RemainingDue,Status,Date) Values ('" + _Sales.CustomerContact + "','" + _Sales.SalesId + "','" + _Sales.TotalAmount + "','" + _Sales.Discount + "','" + _Sales.GrandTotal + "','" + _Sales.PaidAmount + "','" + _Sales.Changes + "','" + _Sales.RemainingDue + "','" + _Sales.Status + "','" + _Sales.Date + "')";
             return _MainRepository.ExecuteNonQuery(query, _MainRepository.ConnectionString());
+        }
+        public List<Sale> GetAllSaleList()
+        {
+            var _SalesList = new List<Sale>();
+            string query = ("select *from Sales");
+            var reader = _MainRepository.Reader(query, _MainRepository.ConnectionString());
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    var _Sales = new Sale();
+                    _Sales.CustomerContact= reader["CustomerContact"].ToString();
+                    _Sales.SalesId = reader["SalesId"].ToString();
+                    _Sales.TotalAmount = Convert.ToDecimal(reader["TotalAmount"].ToString());
+                    _Sales.Discount = Convert.ToDecimal(reader["Discount"].ToString());
+                    _Sales.GrandTotal = Convert.ToDecimal(reader["GrandTotal"].ToString());
+                    _Sales.PaidAmount = Convert.ToDecimal(reader["PaidAmount"].ToString());
+                    _Sales.Changes = Convert.ToDecimal(reader["Changes"].ToString());
+                    _Sales.RemainingDue = Convert.ToDecimal(reader["RemainingDue"].ToString());
+                    _Sales.Status = reader["Status"].ToString();
+                    _Sales.Date = reader["Date"].ToString();
+
+                    _SalesList.Add(_Sales);
+                }
+            }
+            reader.Close();
+
+            return _SalesList;
         }
     }
 }
