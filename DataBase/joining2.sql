@@ -1,6 +1,7 @@
 select *from PurchaseDetails;
 
 select *from SaleDetails;
+select *from Sales;
 
 select distinct Items.Name,PurchaseDetails.Batch,sum(PurchaseDetails.Qty) as TotalQty,PurchaseDetails.CostPrice,PurchaseDetails.SellingPrice from PurchaseDetails
 join Items on Items.Name=PurchaseDetails.Item
@@ -21,3 +22,5 @@ select i.Name,p.Batch,(SUM(p.Qty)-SUM(s.Qty)) as TotalQuantity from PurchaseDeta
 join Items i on i.Name=p.Item
 join SaleDetails s on s.Item=p.Item
 group by i.Name,p.Batch
+
+
