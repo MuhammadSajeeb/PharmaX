@@ -8,9 +8,9 @@ namespace P.Core.Models
 {
     public class Stocks
     {
-        public string Name { get; set; }
+        public string Item { get; set; }
         public int  Batch { get; set; }
-        public decimal TotalQty { get; set; }
+        public decimal StockQty { get; set; }
         public decimal CostPrice { get; set; }
         public decimal SellingPrice { get; set; }
     }

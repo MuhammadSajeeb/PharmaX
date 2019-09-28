@@ -83,5 +83,14 @@ namespace PharmaX.WebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTotalSaleAmount;
+        
+        /// <summary>
+        /// StockLowerGridView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView StockLowerGridView;
     }
 }

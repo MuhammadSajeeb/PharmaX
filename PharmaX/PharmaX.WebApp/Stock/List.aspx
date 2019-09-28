@@ -11,9 +11,9 @@
                         <div class="form-group">
                                 <asp:GridView ID="StockListGridView" runat="server" EmptyDataText="No Stocks Available Now" Width="100%" CssClass="table table-striped table-bordered table-hover" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="10" ForeColor="Black" GridLines="Horizontal" AllowPaging="true" CellSpacing="1">
                                     <Columns>
-                                        <asp:BoundField DataField="Name" HeaderText="Name" />
+                                        <asp:BoundField DataField="Item" HeaderText="Item" />
                                         <asp:BoundField DataField="Batch" HeaderText="Batch" />
-                                        <asp:BoundField DataField="TotalQty" HeaderText="Total Qty" />
+                                        <asp:BoundField DataField="StockQty" HeaderText="Stock Qty" />
                                         <asp:BoundField DataField="CostPrice" HeaderText="Cost Price" />
                                         <asp:BoundField DataField="SellingPrice" HeaderText="Selling Price" />
                                     </Columns>
