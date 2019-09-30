@@ -161,5 +161,31 @@ namespace P.Persistancis.Repositories
 
             return _PurchaseDetails;
         }
+
+        public List<PurchaseDetails> GetPdfPurchaseDetails(string id)
+        {
+            var _PurchaseDetaillist = new List<PurchaseDetails>();
+            string query = ("Select Item,Batch,Qty,CostPrice,TotalPrice,Expire from PurchaseDetails where PurchaseId='" + id + "'");
+            var reader = _MainRepository.Reader(query, _MainRepository.ConnectionString());
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    var _PurchaseDetails = new PurchaseDetails();
+                    _PurchaseDetails.Item = reader["Item"].ToString();
+                    _PurchaseDetails.Batch = Convert.ToInt32(reader["Batch"].ToString());
+                    _PurchaseDetails.Qty = Convert.ToDecimal(reader["Qty"].ToString());
+                    _PurchaseDetails.CostPrice = Convert.ToDecimal(reader["CostPrice"].ToString());
+                    _PurchaseDetails.TotalPrice = Convert.ToDecimal(reader["TotalPrice"].ToString());
+                    _PurchaseDetails.Expire = reader["Expire"].ToString();
+
+                    _PurchaseDetaillist.Add(_PurchaseDetails);
+                }
+            }
+            reader.Close();
+
+            return _PurchaseDetaillist;
+        }
+
     }
 }

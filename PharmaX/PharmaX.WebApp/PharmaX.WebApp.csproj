@@ -52,6 +52,9 @@
     <Reference Include="AspNet.ScriptManager.jQuery, Version=3.4.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AspNet.ScriptManager.jQuery.3.4.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -3341,6 +3344,7 @@
     <Content Include="Purchase\css\sb-admin-2.min.css" />
     <Content Include="Purchase\Details.aspx" />
     <Content Include="Purchase\img\delete.png" />
+    <Content Include="Purchase\img\pharmax_logo.jpg" />
     <Content Include="Purchase\img\undraw_posting_photo.svg" />
     <Content Include="Purchase\js\demo\chart-area-demo.js" />
     <Content Include="Purchase\js\demo\chart-bar-demo.js" />
