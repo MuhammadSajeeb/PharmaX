@@ -35,7 +35,8 @@ namespace PharmaX.WebApp.Purchase
             string Id = (PurchaseListGridView.SelectedRow.Cells[2].Text);
             Response.Redirect("Details.aspx?id=" + Id);
         }
-        string SupplierName,PurchaseId,Date;
+        string SupplierName,PurchaseId,PurchaseDate,isPayment;
+        decimal Amount, Discount, GrandTotal;
         protected void PurchaseListGridView_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if(e.CommandName == "PurchaseId")
@@ -45,7 +46,11 @@ namespace PharmaX.WebApp.Purchase
 
                 SupplierName = PurchaseListGridView.Rows[index].Cells[1].Text;
                 PurchaseId = PurchaseListGridView.Rows[index].Cells[2].Text;
-                Date= PurchaseListGridView.Rows[index].Cells[7].Text;
+                Amount= Convert.ToDecimal(PurchaseListGridView.Rows[index].Cells[3].Text);
+                Discount = Convert.ToDecimal(PurchaseListGridView.Rows[index].Cells[4].Text);
+                GrandTotal = Convert.ToDecimal(PurchaseListGridView.Rows[index].Cells[5].Text);
+                isPayment = PurchaseListGridView.Rows[index].Cells[6].Text;
+                PurchaseDate = PurchaseListGridView.Rows[index].Cells[7].Text;
                 CreatePdf();
             }
 
@@ -165,7 +170,7 @@ namespace PharmaX.WebApp.Purchase
             cell.BorderWidth = 0f;
             //cell.FixedHeight = 20f;
             tbltopcontentinform.AddCell(cell);
-            cell = new PdfPCell(new Phrase(Date, FontFactory.GetFont(FontFactory.TIMES_ROMAN, 9, iTextSharp.text.Font.NORMAL)));
+            cell = new PdfPCell(new Phrase(PurchaseDate, FontFactory.GetFont(FontFactory.TIMES_ROMAN, 9, iTextSharp.text.Font.NORMAL)));
             cell.HorizontalAlignment = 0;
             cell.VerticalAlignment = 0;
             cell.BorderWidth = 0f;
@@ -316,6 +321,133 @@ namespace PharmaX.WebApp.Purchase
             }
             document.Add(tblmidcontentRow);
             //end-row-tablemidcontentrow
+
+            //start purchasecontent
+            float[] purchasecontentwd = new float[3] { 300,5,20 };
+            PdfPTable tblPurchaseContent = new PdfPTable(purchasecontentwd);
+            tblPurchaseContent.WidthPercentage = 100;
+
+
+            cell = new PdfPCell(new Phrase("Total Amount", FontFactory.GetFont(FontFactory.TIMES_ROMAN, 9, iTextSharp.text.Font.BOLD)));
+            cell.HorizontalAlignment = 2;
+            cell.VerticalAlignment = 2;
+            cell.BorderWidth = 0f;
+            cell.Padding = 3;
+            //cell.BorderColor = BaseColor.LIGHT_GRAY;
+            //cell.FixedHeight = 20f;
+            tblPurchaseContent.AddCell(cell);
+
+            cell = new PdfPCell(new Phrase(":", FontFactory.GetFont(FontFactory.TIMES_ROMAN, 9, iTextSharp.text.Font.NORMAL)));
+            cell.HorizontalAlignment = 1;
+            cell.VerticalAlignment = 1;
+            cell.BorderWidth = 0f;
+            cell.Padding = 3;
+            //cell.BorderColor = BaseColor.LIGHT_GRAY;
+            //cell.FixedHeight = 20f;
+            tblPurchaseContent.AddCell(cell);
+
+            cell = new PdfPCell(new Phrase(Convert.ToDecimal(Amount).ToString(), FontFactory.GetFont(FontFactory.TIMES_ROMAN, 9, iTextSharp.text.Font.BOLD)));
+            cell.HorizontalAlignment = 0;
+            cell.VerticalAlignment = 0;
+            cell.BorderWidth = 0f;
+            cell.Padding = 3;
+            //cell.BorderColor = BaseColor.LIGHT_GRAY;
+            //cell.FixedHeight = 20f;
+            tblPurchaseContent.AddCell(cell);
+
+            // second row strat
+
+            cell = new PdfPCell(new Phrase("Discount Amount", FontFactory.GetFont(FontFactory.TIMES_ROMAN, 9, iTextSharp.text.Font.BOLD)));
+            cell.HorizontalAlignment = 2;
+            cell.VerticalAlignment = 2;
+            cell.BorderWidth = 0f;
+            cell.Padding = 3;
+            //cell.BorderColor = BaseColor.LIGHT_GRAY;
+            //cell.FixedHeight = 20f;
+            tblPurchaseContent.AddCell(cell);
+
+            cell = new PdfPCell(new Phrase(":", FontFactory.GetFont(FontFactory.TIMES_ROMAN, 9, iTextSharp.text.Font.NORMAL)));
+            cell.HorizontalAlignment = 1;
+            cell.VerticalAlignment = 1;
+            cell.BorderWidth = 0f;
+            cell.Padding = 3;
+            //cell.BorderColor = BaseColor.LIGHT_GRAY;
+            //cell.FixedHeight = 20f;
+            tblPurchaseContent.AddCell(cell);
+
+            cell = new PdfPCell(new Phrase(Convert.ToDecimal(Discount).ToString(), FontFactory.GetFont(FontFactory.TIMES_ROMAN, 9, iTextSharp.text.Font.BOLD)));
+            cell.HorizontalAlignment = 0;
+            cell.VerticalAlignment = 0;
+            cell.BorderWidth = 0f;
+            cell.Padding = 3;
+            //cell.BorderColor = BaseColor.LIGHT_GRAY;
+            //cell.FixedHeight = 20f;
+            tblPurchaseContent.AddCell(cell);
+
+            //third row start
+
+            cell = new PdfPCell(new Phrase("Grand Total", FontFactory.GetFont(FontFactory.TIMES_ROMAN, 9, iTextSharp.text.Font.BOLD)));
+            cell.HorizontalAlignment = 2;
+            cell.VerticalAlignment = 2;
+            cell.BorderWidth = 0f;
+            cell.Padding = 3;
+            //cell.BorderColor = BaseColor.LIGHT_GRAY;
+            //cell.FixedHeight = 20f;
+            tblPurchaseContent.AddCell(cell);
+
+            cell = new PdfPCell(new Phrase(":", FontFactory.GetFont(FontFactory.TIMES_ROMAN, 9, iTextSharp.text.Font.NORMAL)));
+            cell.HorizontalAlignment = 1;
+            cell.VerticalAlignment = 1;
+            cell.BorderWidth = 0f;
+            cell.Padding = 3;
+            //cell.BorderColor = BaseColor.LIGHT_GRAY;
+            //cell.FixedHeight = 20f;
+            tblPurchaseContent.AddCell(cell);
+
+            cell = new PdfPCell(new Phrase(Convert.ToDecimal(GrandTotal).ToString(), FontFactory.GetFont(FontFactory.TIMES_ROMAN, 9, iTextSharp.text.Font.BOLD)));
+            cell.HorizontalAlignment = 0;
+            cell.VerticalAlignment = 0;
+            cell.BorderWidth = 0f;
+            cell.Padding = 3;
+            //cell.BorderColor = BaseColor.LIGHT_GRAY;
+            //cell.FixedHeight = 20f;
+            tblPurchaseContent.AddCell(cell);
+
+            //fourth row start
+
+            cell = new PdfPCell(new Phrase("Payment Status", FontFactory.GetFont(FontFactory.TIMES_ROMAN, 9, iTextSharp.text.Font.BOLD)));
+            cell.HorizontalAlignment = 2;
+            cell.VerticalAlignment = 2;
+            cell.BorderWidth = 0f;
+            cell.Padding = 3;
+            //cell.BorderColor = BaseColor.LIGHT_GRAY;
+            //cell.FixedHeight = 20f;
+            tblPurchaseContent.AddCell(cell);
+
+            cell = new PdfPCell(new Phrase(":", FontFactory.GetFont(FontFactory.TIMES_ROMAN, 9, iTextSharp.text.Font.NORMAL)));
+            cell.HorizontalAlignment = 1;
+            cell.VerticalAlignment = 1;
+            cell.BorderWidth = 0f;
+            cell.Padding = 3;
+            //cell.BorderColor = BaseColor.LIGHT_GRAY;
+            //cell.FixedHeight = 20f;
+            tblPurchaseContent.AddCell(cell);
+
+            cell = new PdfPCell(new Phrase(isPayment, FontFactory.GetFont(FontFactory.TIMES_ROMAN, 9, iTextSharp.text.Font.BOLD)));
+            cell.HorizontalAlignment = 0;
+            cell.VerticalAlignment = 0;
+            cell.BorderWidth = 0f;
+            cell.Padding = 3;
+            //cell.BorderColor = BaseColor.LIGHT_GRAY;
+            //cell.FixedHeight = 20f;
+            tblPurchaseContent.AddCell(cell);
+            tblPurchaseContent.CompleteRow();
+            //end of row
+
+            document.Add(tblPurchaseContent);
+            //end table purchase content
+
+
 
             //document close now
             document.Close();
