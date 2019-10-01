@@ -3,3 +3,7 @@ inner join
 (Select Item,sum(Qty) as TotalSellingQty from SaleDetails group by Item) t2 on t1.Item=t2.Item ) t3
 inner join
 (select Name,ReorderLevel from Items)t4 on t3.Item=t4.Name) where t3.StockQty < t4.ReorderLevel)
+
+
+
+select Item,Batch,CostPrice from PurchaseDetails where Item='Napa' order by Id desc
